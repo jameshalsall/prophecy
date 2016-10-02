@@ -88,7 +88,7 @@ class ThrowPromise implements PromiseInterface
     }
 
     private function isNotAValidThrowable($exception)
-    {
-        return 'Exception' !== ltrim($exception, '\\') && !is_subclass_of($exception, 'Exception') && !is_subclass_of($exception, 'Throwable');
+    {   
+        return !is_a($exception, Exception::class) && !is_a($exception, Throwable::class);
     }
 }
